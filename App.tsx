@@ -3,7 +3,8 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { Button, PaperProvider } from "react-native-paper";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import MenuBottomTabs from "./components/navigations/MenuBottomTabs";
+import MenuBottomTabs from "./pages/navigations/MenuBottomTabs";
+import MyMainStack from "./pages/navigations/StackNavigation";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +14,7 @@ export default function App() {
   return (
     <PaperProvider>
       <NavigationContainer>
-        <MenuBottomTabs />
+        <MyMainStack/>
       </NavigationContainer>
     </PaperProvider>
   );

@@ -1,46 +1,44 @@
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import HomeScreen from '../../pages/HomeScreen';
-import SettingsScreen from '../../pages/SettingsScreen';
+import SettingsScreen from '../SaisiScreen';
 import OngletsTopTabPlaniSaisi from './OngletsTopTabsPlanifSaisi';
+import ParamScreen from '../ParamScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 
 export default function MenuBottomTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Feed"
-      activeColor="#e91e63"
-      barStyle={{ backgroundColor: 'tomato' }}
+      initialRouteName="Vacation"
     >
       <Tab.Screen
-        name="Feed"
+        name="Vacation"
         component={OngletsTopTabPlaniSaisi}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Vacation',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <MaterialCommunityIcons name="train" color={color} size={26} />
           ),
         }}
       />
       <Tab.Screen
-        name="Notifications"
+        name="Saisi"
         component={SettingsScreen}
         options={{
-          tabBarLabel: 'Updates',
+          tabBarLabel: 'Saisi',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
+            <MaterialCommunityIcons name="pen" color={color} size={26} />
           ),
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={SettingsScreen}
+        name="Param"
+        component={ParamScreen}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'Paramètre',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+            <MaterialCommunityIcons name="cog" color={color} size={26} />
           ),
         }}
       />
