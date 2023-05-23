@@ -1,17 +1,26 @@
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import { Text, Divider } from "react-native-paper";
 
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Text, Divider } from 'react-native-paper';
+type PropsDetailTrajet = {
+  departureTime: Date;
+  arrivalTime: Date;
+  departureCity: string;
+  arrivalCity: string;
+};
 
-
-const DetailTrajet = (props) => {
+const DetailTrajet = (props: PropsDetailTrajet) => {
   const { departureTime, arrivalTime, departureCity, arrivalCity } = props;
 
   return (
     <View style={styles.container}>
       <View style={styles.column}>
-        <Text style={styles.time}>{departureTime}</Text>
-        <Text style={styles.city}>{arrivalTime}</Text>
+        <Text style={styles.time}>
+          {departureTime.getHours()}:{departureTime.getMinutes()}
+        </Text>
+        <Text style={styles.city}>
+          {arrivalTime.getHours()}:{arrivalTime.getMinutes()}
+        </Text>
       </View>
       <Divider style={styles.divider} />
       <View style={styles.column}>
@@ -20,14 +29,14 @@ const DetailTrajet = (props) => {
       </View>
     </View>
   );
-}
+};
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#E0F2FE",
     borderRadius: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     padding: 5,
     shadowColor: "gray",
     shadowOffset: {
@@ -39,24 +48,21 @@ const styles = StyleSheet.create({
     elevation: 20,
   },
   column: {
-   
-    
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   time: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 0,
   },
   city: {
-    fontSize: 18,
+    fontSize: 24,
   },
   divider: {
-    height: '80%',
+    height: "80%",
     width: 1,
-    backgroundColor: 'gray',
+    backgroundColor: "gray",
     marginHorizontal: 5,
   },
-})
+});
 export default DetailTrajet;
-
