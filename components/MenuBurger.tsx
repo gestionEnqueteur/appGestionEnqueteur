@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { Menu, IconButton } from "react-native-paper";
 
-export default function MenuBurger() {
+type Props = {
+  goToSuppresion: Function;
+  goToInfoTrain: Function;
+  goToRetard: Function;
+  goToDescentStation: Function;
+};
+
+export default function MenuBurger(props: Props) {
   const [visible, setVisible] = useState(false);
 
   const openMenu = () => setVisible(true);
@@ -10,26 +17,22 @@ export default function MenuBurger() {
   //function button
   function openModalSuppressionTrain() {
     closeMenu();
-    // TODO à implémenter
-    console.log("ouverture modal suppresion train");
+    props.goToSuppresion();
   }
 
   function openModalInfoTrain() {
     closeMenu();
-    // TODO à implémnter
-    console.log("ouverture modal info train");
+    props.goToInfoTrain();
   }
 
   function openModalRetardTrain() {
     closeMenu();
-    // TODO à implémnter
-    console.log("ouverture modal retard du train");
+    props.goToRetard();
   }
 
   function openModalGareDescente() {
     closeMenu();
-    // TODO à implémenter
-    console.log("ouverture modal gare de descente");
+    props.goToDescentStation();
   }
 
   const buttom = (
