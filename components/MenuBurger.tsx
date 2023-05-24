@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, Button } from "react-native-paper";
+import { Menu, IconButton } from "react-native-paper";
 
 export default function MenuBurger() {
   const [visible, setVisible] = useState(false);
@@ -33,9 +33,11 @@ export default function MenuBurger() {
   }
 
   const buttom = (
-    <Button mode="text" icon="dots-vertical" onPress={openMenu}>
-      {" "}
-    </Button>
+    <IconButton
+      mode="contained-tonal"
+      icon="dots-vertical"
+      onPress={openMenu}
+    />
   );
 
   return (
