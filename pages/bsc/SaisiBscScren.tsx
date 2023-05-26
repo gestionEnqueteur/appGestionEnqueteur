@@ -12,6 +12,7 @@ import {
 import CardNumeroLine from "../../components/CardNumeroLine";
 import ChronoTopDepart from "../../components/ChornoTopDepart";
 import DetailTrajet from "../../components/DetailTrajet";
+import MenuBurger from "../../components/MenuBurger";
 
 // variable de test
 const datetime = new Date();
@@ -23,7 +24,7 @@ export default function SaisiBscCreen() {
 
   return (
     <View style={style.container}>
-      <Surface style={style.header} mode="elevated">
+      <Surface style={style.header} mode="elevated" elevation={4}>
         <View style={style.circulation}>
           <CardNumeroLine lineNumber="K12" />
           <Text variant="displaySmall">814206</Text>
@@ -40,6 +41,12 @@ export default function SaisiBscCreen() {
             departureTime={datetime}
             arrivalTime={datetime}
           />
+          <MenuBurger
+            goToSuppresion={() => console.log("TER supprimé")}
+            goToDescentStation={() => console.log("Anticipter la descente")}
+            goToInfoTrain={() => console.log("renseigné les infos train")}
+            goToRetard={() => console.log("renseigner les retard")}
+          />
         </View>
       </Surface>
       <ScrollView style={style.mainContent}>
@@ -48,13 +55,19 @@ export default function SaisiBscCreen() {
             <Text variant="labelMedium">Composition : </Text>
             <Avatar.Text label="US" size={40} />
             <Text variant="labelMedium">Numéro de matériel :</Text>
-            <Text style={style.offsetRight} variant="bodyLarge">21 82 889</Text>
+            <Text style={style.offsetRight} variant="bodyLarge">
+              21 82 889
+            </Text>
           </View>
           <View style={style.retardTrain}>
             <Text variant="labelMedium">Retard au départ :</Text>
-            <Text style={style.offsetRight} variant="bodyLarge">10 min</Text>
+            <Text style={style.offsetRight} variant="bodyLarge">
+              10 min
+            </Text>
             <Text variant="labelMedium">Retard à l'arrivé :</Text>
-            <Text style={style.offsetRight} variant="bodyLarge">15 min</Text>
+            <Text style={style.offsetRight} variant="bodyLarge">
+              15 min
+            </Text>
           </View>
         </View>
         <View style={style.quotasBsc}>
@@ -71,7 +84,7 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    margin: 5,
+    padding: 5,
   },
   header: {
     flexDirection: "column",
@@ -97,7 +110,7 @@ const style = StyleSheet.create({
     flex: 1,
   },
   offsetRight: {
-    alignSelf: "flex-end", 
+    alignSelf: "flex-end",
   },
   splitScreenVertical: {
     flexDirection: "row",
