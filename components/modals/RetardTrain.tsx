@@ -1,51 +1,36 @@
 import React from "react";
-import { View, Text, StyleSheet,PixelRatio } from "react-native";
-import { Button, Modal, Portal, TextInput, Divider } from "react-native-paper";
+import { View, Text, StyleSheet} from "react-native";
+import { Button, TextInput } from "react-native-paper";
 
 
- const fontScale = PixelRatio.getFontScale();
-const getFontSize = (size: number) => size / fontScale;
-
-
-type props = {
-  visible: boolean;
- 
-};
-
-export default function RetardTrain(props: props) {
-  const { visible } = props;
-
+export default function RetardTrain() {
   return (
-    <Portal>
-      <Modal visible={visible}>
-        <View style={styles.modalContainer}>
-          <View style={styles.columnContainer}>
-            <View style={styles.column}>
-              <Text style={styles.columnTitle}>Retard départure</Text>
-              <TextInput style={styles.input} />
+    <View style={styled.modalContainer}>
+      <View style={styled.columnContainer}>
+        <View style={styled.column}>
+          <Text style={styled.columnTitle}>Retard départure</Text>
+          <TextInput style={styled.input} />
 
-              <Text style={styles.columnTitle}>Retard arival</Text>
-              <TextInput style={styles.input} />
-              </View>
-              <View style={styles.buttonContainer}>
-              <Button mode="contained" style={styles.squareButton}>
-                <Text style={styles.columnTitlePush}>Top départ</Text>
-              </Button>
-              <Button mode="contained" style={styles.squareButton}>
-                <Text style={styles.columnTitlePush}>Top arriver</Text>
-              </Button>
-            </View>
-          </View>
-          <Button mode="contained" style={styles.button}>
-             <Text style={styles.columnTitlePush}>Valider</Text>
+          <Text style={styled.columnTitle}>Retard arival</Text>
+          <TextInput style={styled.input} />
+        </View>
+        <View style={styled.buttonContainer}>
+          <Button mode="contained" style={styled.squareButton}>
+            <Text style={styled.columnTitlePush}>Top départ</Text>
+          </Button>
+          <Button mode="contained" style={styled.squareButton}>
+            <Text style={styled.columnTitlePush}>Top arriver</Text>
           </Button>
         </View>
-      </Modal>
-    </Portal>
+      </View>
+      <Button mode="contained" style={styled.button}>
+        <Text style={styled.columnTitlePush}>Valider</Text>
+      </Button>
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
+const styled = StyleSheet.create({
   modalContainer: {
     backgroundColor: "#ADD8E6",
     padding: 10,
