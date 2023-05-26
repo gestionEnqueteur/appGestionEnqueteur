@@ -1,6 +1,13 @@
 import { useState } from "react";
-import { View, StyleSheet } from "react-native";
-import { Button, SegmentedButtons, Text, TextInput } from "react-native-paper";
+import { View, StyleSheet, ScrollView } from "react-native";
+import {
+  Avatar,
+  Button,
+  SegmentedButtons,
+  Surface,
+  Text,
+  TextInput,
+} from "react-native-paper";
 
 import CardNumeroLine from "../../components/CardNumeroLine";
 import ChronoTopDepart from "../../components/ChornoTopDepart";
@@ -16,7 +23,7 @@ export default function SaisiBscCreen() {
 
   return (
     <View style={style.container}>
-      <View style={style.header}>
+      <Surface style={style.header} mode="elevated">
         <View style={style.circulation}>
           <CardNumeroLine lineNumber="K12" />
           <Text variant="displaySmall">814206</Text>
@@ -34,39 +41,28 @@ export default function SaisiBscCreen() {
             arrivalTime={datetime}
           />
         </View>
-      </View>
-      <View style={style.mainContent}>
+      </Surface>
+      <ScrollView style={style.mainContent}>
         <View style={style.splitScreenVertical}>
           <View style={style.infoTrain}>
-            <SegmentedButtons
-              value={value}
-              onValueChange={setValue}
-              buttons={[
-                {
-                  value: "US",
-                  label: "US",
-                },
-                {
-                  value: "UM2",
-                  label: "UM2",
-                },
-                { value: "UM3", label: "UM3" },
-              ]}
-            />
-            <TextInput mode="outlined" label="Numéro de matériel : " />
+            <Text variant="labelMedium">Composition : </Text>
+            <Avatar.Text label="US" size={40} />
+            <Text variant="labelMedium">Numéro de matériel :</Text>
+            <Text style={style.offsetRight} variant="bodyLarge">21 82 889</Text>
           </View>
           <View style={style.retardTrain}>
-            <TextInput mode="outlined" label="Retard au départ : " />
-            <TextInput mode="outlined" label="Retard à l'arrivé : " />
+            <Text variant="labelMedium">Retard au départ :</Text>
+            <Text style={style.offsetRight} variant="bodyLarge">10 min</Text>
+            <Text variant="labelMedium">Retard à l'arrivé :</Text>
+            <Text style={style.offsetRight} variant="bodyLarge">15 min</Text>
           </View>
         </View>
-      </View>
-      <View style={style.quotasBsc} >
-        <TextInput mode="outlined" label="Questionnaire distribué : " />
-        <TextInput mode="outlined" label="Questionnaire récupéré vide :" />
-        <TextInput mode="outlined" label="Questionnaire Inexploitable : " />
-
-      </View>
+        <View style={style.quotasBsc}>
+          <TextInput mode="outlined" label="Questionnaire distribué : " />
+          <TextInput mode="outlined" label="Questionnaire récupéré vide :" />
+          <TextInput mode="outlined" label="Questionnaire Inexploitable : " />
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -75,19 +71,17 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
+    margin: 5,
   },
   header: {
-    backgroundColor: "green",
     flexDirection: "column",
   },
   circulation: {
-    backgroundColor: "orange",
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
   },
   infoCourse: {
-    backgroundColor: "pink",
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
@@ -97,16 +91,16 @@ const style = StyleSheet.create({
     backgroundColor: "white",
   },
   infoTrain: {
-    backgroundColor: "cyan",
     flex: 1,
   },
   retardTrain: {
     flex: 1,
   },
+  offsetRight: {
+    alignSelf: "flex-end", 
+  },
   splitScreenVertical: {
     flexDirection: "row",
   },
-  quotasBsc: {
-    backgroundColor: "orange", 
-  }
+  quotasBsc: {},
 });
