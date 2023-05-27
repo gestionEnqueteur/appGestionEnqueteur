@@ -41,10 +41,10 @@ export default function TopRetard(props: Props) {
   return (
     <View style={style.container}>
       <View style={style.half}>
-        <TextInput label="Retard au départ" mode="outlined" value={valueInput.toString()} onChangeText={handleInput} />
+        <TextInput label={props.labelInput} mode="outlined" value={valueInput.toString()} onChangeText={handleInput} />
       </View>
       <View style={style.half}>
-        <Button mode="contained" onPress={handleButton}>Top départ</Button>
+        <Button mode="contained" onPress={handleButton}>{props.labelButton}</Button>
       </View>
     </View>
   );
