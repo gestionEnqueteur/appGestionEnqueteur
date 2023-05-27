@@ -10,7 +10,7 @@ export default function GareDeDescente() {
   return (
     
         <View style={styles.modalContainer}>
-          <Text style={styles.modalTitle}>Gare de descente enqueteur</Text>
+          <Text style={styles.modalContainer}>Gare de descente enqueteur</Text>
           <TextInput style={styles.input} />
           <Button mode="contained" style={styles.button}>
             Valider

@@ -3,8 +3,10 @@ import { View, Text, StyleSheet} from "react-native";
 import { Button, TextInput } from "react-native-paper";
 
 
+
 export default function RetardTrain() {
   return (
+    
     <View style={styled.modalContainer}>
       <View style={styled.columnContainer}>
         <View style={styled.column}>
@@ -30,7 +32,7 @@ export default function RetardTrain() {
   );
 }
 
-const styled = StyleSheet.create({
+ const styled = StyleSheet.create({
   modalContainer: {
     backgroundColor: "#ADD8E6",
     padding: 10,
@@ -82,3 +84,4 @@ const styled = StyleSheet.create({
     marginTop: 20,
   },
 });
+ 

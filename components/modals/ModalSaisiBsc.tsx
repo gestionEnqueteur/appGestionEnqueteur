@@ -13,23 +13,24 @@ type props = {
 };
 
 export default function ModalSaisiBsc(props: props) {
-  const { visible } = props;
+  const { visible, select } = props;
 
-  return (
-    <Portal>
-      <Modal visible={visible}>
-        <View style={styles.modalContainer}>
-          {props.select === "supression" && (
-            <SupressionTrain/>
-          )}
-          {props.select === "retard" && <RetardTrain/>}
-          {/*props.select === "info" && <InfoTrain/>*/}
-          {props.select === "descent" && <GareDeDescente/>}
-        </View>
-      </Modal>
-         </Portal>
+  return
+  <Portal>
+    <Modal visible={visible}>
+      <View style={styles.modalContainer}>
+        {select === "supression" && (
+          <SupressionTrain />
+        )}
+        {select === "retard" && <RetardTrain />}
+        {/*select === "info" && <InfoTrain/>*/}
+        {select === "descent" && <GareDeDescente />}
+      </View>
+    </Modal>
+  </Portal>
               
     
-  );
+  ;
 }
+
 

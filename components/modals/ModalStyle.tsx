@@ -11,10 +11,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 10,
   },
-  modalTitle {
-  padding: 10;,
- },
-  
+
   input: {
     width: 350,
   },
