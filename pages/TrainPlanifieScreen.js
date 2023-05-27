@@ -1,11 +1,28 @@
-import { View } from "react-native";
-import { Text } from "react-native-paper";
-
+import { View, StyleSheet, ScrollView } from "react-native";
+import DetailCourse from "../components/DetailCourse";
+import { FlatList } from "react-native";
 
 export default function TrainPlanifieScreen() {
   return (
-    <View>
-      <Text>Ici la liste des train plannifié</Text>
-    </View>
-  )
+    <ScrollView style={style.container}>
+      <DetailCourse />
+      <DetailCourse />
+      <DetailCourse />
+      <DetailCourse />
+      <DetailCourse />
+      <DetailCourse />
+      <DetailCourse />
+      <DetailCourse />
+    
+    </ScrollView>
+  );
 }
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    gap: 5, 
+    
+  },
+});
