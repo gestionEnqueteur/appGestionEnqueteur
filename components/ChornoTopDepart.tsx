@@ -96,7 +96,7 @@ export default function ChronoTopDepart(props: props) {
     return (
       <View style={style.container}>
         <Text style={style.text}>
-          {datetimeDepart.getDate()}/{datetimeDepart.getMonth()}
+          {datetimeDepart.getDate()}/{datetimeDepart.getMonth() + 1}
         </Text>
       </View>
     );
