@@ -1,11 +1,12 @@
 import React from "react";
 import { View } from "react-native";
 import { Modal, Portal } from "react-native-paper";
-import styles from "./ModalStyle";
 import SupressionTrain from "./SupressionTrain";
 import RetardTrain from "./RetardTrain";
-//import InfoTrain from "./InfoTrain";
+import InfoTrain from "./InfoTrain";
 import GareDeDescente from "./GareDeDescente";
+
+// import pour les test
 
 type props = {
   visible: boolean;
@@ -13,24 +14,19 @@ type props = {
 };
 
 export default function ModalSaisiBsc(props: props) {
-  const { visible, select } = props;
+  const { select, visible } = props;
 
-  return
-  <Portal>
-    <Modal visible={visible}>
-      <View style={styles.modalContainer}>
-        {select === "supression" && (
-          <SupressionTrain />
-        )}
+  return (
+    <Portal>
+      <Modal
+        visible={visible}
+        onDismiss={() => console.log("fermeture à prévoir")}
+      >
+        {select === "supression" && <SupressionTrain />}
         {select === "retard" && <RetardTrain />}
-        {/*select === "info" && <InfoTrain/>*/}
+        {select === "info" && <InfoTrain />}
         {select === "descent" && <GareDeDescente />}
-      </View>
-    </Modal>
-  </Portal>
-              
-    
-  ;
+      </Modal>
+    </Portal>
+  );
 }
-
-

@@ -17,7 +17,7 @@ export default function InfoTrain() {
           <Text style={styles.columnTitlePush}>UM3</Text>
         </Button>
       </View>
-      <TextInput style={styles.input}/>
+      <TextInput />
       <Button mode="contained" style={styles.button}>
         <Text style={styles.columnTitlePush}>Valider</Text>
       </Button>
