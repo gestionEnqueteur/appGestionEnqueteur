@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { Button, TextInput } from "react-native-paper";
-import styles from "./ModalStyle";
+import styles from "./modalStyle";
 
 export default function InfoTrain() {
   return (
