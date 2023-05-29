@@ -11,6 +11,7 @@ import GareDeDescente from "./GareDeDescente";
 type props = {
   visible: boolean;
   select: string;
+  setVisible: Function
 };
 
 export default function ModalSaisiBsc(props: props) {
@@ -20,7 +21,7 @@ export default function ModalSaisiBsc(props: props) {
     <Portal>
       <Modal
         visible={visible}
-        onDismiss={() => console.log("fermeture à prévoir")}
+        onDismiss={() => props.setVisible(false)}
       >
         {select === "supression" && <SupressionTrain />}
         {select === "retard" && <RetardTrain />}
