@@ -14,53 +14,58 @@ const DetailTrajet = (props: PropsDetailTrajet) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.column}>
-        <Text style={styles.time}>
+      <View >
+        <Text style={styles.timeStart}>
           {departureTime.getHours()}:{departureTime.getMinutes()}
         </Text>
-        <Text style={styles.city}>
+        <Text style={styles.timeEnd}>
           {arrivalTime.getHours()}:{arrivalTime.getMinutes()}
         </Text>
       </View>
-      <Divider style={styles.divider} />
-      <View style={styles.column}>
-        <Text style={styles.time}>{departureCity}</Text>
-        <Text style={styles.city}>{arrivalCity}</Text>
+        <Divider style={styles.divider} />
+      <View >
+        <Text style={styles.cityStart}>{departureCity}</Text>
+        <Text style={styles.cityEnd}>{arrivalCity}</Text>
       </View>
     </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#E0F2FE",
-    borderRadius: 10,
+   
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     padding: 5,
-    shadowColor: "gray",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 20,
+   
   },
-  column: {
-    justifyContent: "center",
-  },
-  time: {
+  
+  timeStart: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 0,
+   
   },
-  city: {
+  timeEnd: {
+   
+    fontSize: 24,
+
+   
+  },
+  cityStart: {
+   
+    fontWeight: "bold",
+ 
+    fontSize: 24,
+  },
+  cityEnd: {
+    marginLeft: 0,
     fontSize: 24,
   },
   divider: {
+ 
+   
     height: "80%",
-    width: 1,
+    width: 3,
     backgroundColor: "gray",
     marginHorizontal: 5,
   },
