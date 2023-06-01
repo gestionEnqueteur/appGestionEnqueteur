@@ -34,12 +34,15 @@ export default function DetailCourse() {
 
 const style = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: "column",
+    margin:"1%",
+    borderColor:"blue",
+    borderStyle: "solid",
+    borderWidth:2
+    
   },
   line: {
     flexDirection: "row",
     justifyContent: "space-around",
-    alignItems: "center", 
+    
   },
 });
