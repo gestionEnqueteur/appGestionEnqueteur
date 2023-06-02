@@ -2,59 +2,58 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Text, Divider } from "react-native-paper";
 
-type PropsDetailTrajet = {
+type DetailTrajetProps = {
   departureTime: Date;
   arrivalTime: Date;
   departureCity: string;
   arrivalCity: string;
 };
 
-const DetailTrajet = (props: PropsDetailTrajet) => {
+const formatTime = (time: Date) => {
+  const hours = time.getHours().toString().padStart(2, "0");
+  const minutes = time.getMinutes().toString().padStart(2, "0");
+  return `${hours}:${minutes}`;
+};
+
+const DetailTrajet = (props: DetailTrajetProps) => {
   const { departureTime, arrivalTime, departureCity, arrivalCity } = props;
+
+  const formattedDepartureTime = formatTime(departureTime);
+  const formattedArrivalTime = formatTime(arrivalTime);
 
   return (
     <View style={styles.container}>
-      <View >
-        <Text style={styles.timeStart}>
-          {departureTime.getHours()}:{departureTime.getMinutes()}
-        </Text>
-        <Text style={styles.timeEnd}>
-          {arrivalTime.getHours()}:{arrivalTime.getMinutes()}
-        </Text>
+      <View>
+        <Text style={styles.timeStart}>{formattedDepartureTime}</Text>
+        <Text style={styles.timeEnd}>{formattedArrivalTime}</Text>
       </View>
-        <Divider style={styles.divider} />
-      <View >
+      <Divider style={styles.divider} />
+      <View>
         <Text style={styles.cityStart}>{departureCity}</Text>
         <Text style={styles.cityEnd}>{arrivalCity}</Text>
       </View>
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
-   
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     padding: 5,
-   
   },
-  
   timeStart: {
+    marginLeft: 4,
     fontSize: 24,
     fontWeight: "bold",
-   
   },
   timeEnd: {
-   
+    marginLeft: 4,
     fontSize: 24,
-
-   
   },
   cityStart: {
-   
     fontWeight: "bold",
- 
     fontSize: 24,
   },
   cityEnd: {
@@ -62,12 +61,11 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   divider: {
- 
-   
     height: "80%",
     width: 3,
     backgroundColor: "gray",
     marginHorizontal: 5,
   },
 });
+
 export default DetailTrajet;
