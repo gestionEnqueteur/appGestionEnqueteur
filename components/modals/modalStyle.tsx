@@ -55,6 +55,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "column",
   },
+  infoline: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 
 export default styles;

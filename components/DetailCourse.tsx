@@ -4,6 +4,8 @@ import ChronoTopDepart from "./ChornoTopDepart";
 import DetailTrajet from "./DetailTrajet";
 import MenuBurger from "./MenuBurger";
 import CardNumeroLine from "./CardNumeroLine";
+import Quotas from "./Quotas";
+import styles from "./modals/modalStyle";
 
 const dateOfTest = new Date();
 
@@ -24,9 +26,12 @@ export default function DetailCourse() {
         />
         <MenuBurger />
       </View>
-      <View style={style.line}>
-        <CardNumeroLine lineNumber="K12" />
-        <Text variant="headlineSmall">842526</Text>
+      <View style={styles.infoline}>
+        <Text>
+          <CardNumeroLine lineNumber="K12" />
+          <Quotas value={80} />
+          {842526}
+        </Text>
       </View>
     </View>
   );
@@ -35,16 +40,12 @@ export default function DetailCourse() {
 const style = StyleSheet.create({
   container: {
     margin: "1%",
-    padding:"1%",
-    borderColor:"blue",
+    padding: "1%",
+    borderColor: "blue",
     borderStyle: "solid",
-    borderWidth:1
-    
+    borderWidth: 1,
   },
   line: {
-    
     flexDirection: "row",
-    justifyContent: "space-around",
-    
   },
 });
