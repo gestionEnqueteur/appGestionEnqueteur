@@ -19,36 +19,32 @@ const datetime = new Date();
 
 // test composant
 
-export default function SaisiBscCreen() {
+export default function SaisiBscScreen() {
   const [value, setValue] = useState("");
 
   return (
     <View style={style.container}>
       <Surface style={style.header} mode="elevated" elevation={4}>
         <View style={style.circulation}>
-          
-          <CardNumeroLine lineNumber="K12"/>
-      
+          <CardNumeroLine lineNumber="K12" />
+
           <Text variant="displaySmall">814206</Text>
         </View>
         <View style={style.infoCourse}>
-          <ChronoTopDepart
-            datetimeDepart={datetime}
-            datetimeArrival={datetime}
-            currentDatetime={datetime}
-          />
-          <DetailTrajet
-            departureCity="Lille"
-            arrivalCity="Paris"
-            departureTime={datetime}
-            arrivalTime={datetime}
-          />
-          <MenuBurger
-            goToSuppresion={() => console.log("TER supprimé")}
-            goToDescentStation={() => console.log("Anticipter la descente")}
-            goToInfoTrain={() => console.log("renseigné les infos train")}
-            goToRetard={() => console.log("renseigner les retard")}
-          />
+          <View style={style.detailTime}>
+            <ChronoTopDepart
+              currentDatetime={datetime}
+              datetimeArrival={datetime}
+              datetimeDepart={datetime}
+            />
+            <DetailTrajet
+              departureTime={datetime}
+              arrivalTime={datetime}
+              departureCity="Lille"
+              arrivalCity="Paris"
+            />
+          </View>
+          <MenuBurger />
         </View>
       </Surface>
       <ScrollView style={style.mainContent}>
@@ -78,8 +74,18 @@ export default function SaisiBscCreen() {
           <TextInput mode="outlined" label="Questionnaire Inexploitable : " />
         </View>
         <View style={style.areaButton}>
-          <Button mode="contained" onPress={() => console.log("Enregistrement du formulaire Saisi")}>Enregister</Button>
-          <Button mode="contained" onPress={() => console.log("Sousmission du formulaire Saisi")}>Soumettre</Button>
+          <Button
+            mode="contained"
+            onPress={() => console.log("Enregistrement du formulaire Saisi")}
+          >
+            Enregister
+          </Button>
+          <Button
+            mode="contained"
+            onPress={() => console.log("Sousmission du formulaire Saisi")}
+          >
+            Soumettre
+          </Button>
         </View>
       </ScrollView>
     </View>
@@ -102,7 +108,7 @@ const style = StyleSheet.create({
   },
   infoCourse: {
     flexDirection: "row",
-    justifyContent: "flex-start",
+    justifyContent: "space-between",
     alignItems: "center",
   },
   mainContent: {
@@ -124,9 +130,13 @@ const style = StyleSheet.create({
   quotasBsc: {},
   areaButton: {
     marginVertical: 50,
-    flexDirection: "row", 
-    justifyContent: "space-around", 
-    alignItems: "flex-end", 
-    bottom: 0, 
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "flex-end",
+    bottom: 0,
+  },
+  detailTime: {
+    flexDirection: "row",
+    width: 200
   }
 });
