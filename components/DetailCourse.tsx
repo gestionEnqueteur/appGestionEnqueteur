@@ -21,7 +21,7 @@ export default function DetailCourse() {
           <DetailTrajet
             departureTime={dateOfTest}
             arrivalTime={dateOfTest}
-            departureCity="Lilledddkkkk"
+            departureCity="Lille"
             arrivalCity="Paris"
           />
         </View>
@@ -56,6 +56,6 @@ const style = StyleSheet.create({
   },
   detailTime: {
     flexDirection: "row",
-    width: "80%"
+    width: 200
   }
 });
