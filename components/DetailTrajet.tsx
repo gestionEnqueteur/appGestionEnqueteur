@@ -8,6 +8,9 @@ type DetailTrajetProps = {
   departureCity: string;
   arrivalCity: string;
 };
+const removeTiret = (word: string) => {
+  return word.replaceAll("-", " ");
+};
 
 const formatTime = (time: Date) => {
   const hours = time.getHours().toString().padStart(2, "0");
@@ -29,8 +32,8 @@ const DetailTrajet = (props: DetailTrajetProps) => {
       </View>
       <Divider style={styles.divider} />
       <View>
-        <Text style={styles.cityStart}>{departureCity}</Text>
-        <Text style={styles.cityEnd}>{arrivalCity}</Text>
+        <Text style={styles.cityStart}>{removeTiret(departureCity)}</Text>
+        <Text style={styles.cityEnd}>{removeTiret(arrivalCity)}</Text>
       </View>
     </View>
   );
