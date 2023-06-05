@@ -26,12 +26,10 @@ export default function DetailCourse() {
         />
         <MenuBurger />
       </View>
-      <View style={styles.infoline}>
-        <Text>
-          <CardNumeroLine lineNumber="K12" />
-          <Quotas value={80} />
-          {842526}
-        </Text>
+      <View style={styles.infoLine}>
+        <CardNumeroLine lineNumber="K12" />
+        <Quotas value={80} />
+        <Text variant="headlineSmall">{842526}</Text>
       </View>
     </View>
   );
