@@ -12,19 +12,24 @@ const dateOfTest = new Date();
 export default function DetailCourse() {
   return (
     <View style={style.container}>
-      <View style={style.line}>
-        <ChronoTopDepart
-          currentDatetime={dateOfTest}
-          datetimeArrival={dateOfTest}
-          datetimeDepart={dateOfTest}
-        />
-        <DetailTrajet
-          departureTime={dateOfTest}
-          arrivalTime={dateOfTest}
-          departureCity="Lille Flandres"
-          arrivalCity="Paris"
-        />
-        <MenuBurger />
+      <View></View>
+      <View style={style.lineUp}>
+        <View style={style.detailTime}>
+          <ChronoTopDepart
+            currentDatetime={dateOfTest}
+            datetimeArrival={dateOfTest}
+            datetimeDepart={dateOfTest}
+          />
+          <DetailTrajet
+            departureTime={dateOfTest}
+            arrivalTime={dateOfTest}
+            departureCity="Lille"
+            arrivalCity="Paris"
+          />
+        </View>
+        <View>
+          <MenuBurger />
+        </View>
       </View>
       <View style={styles.infoLine}>
         <CardNumeroLine lineNumber="K12" />
@@ -43,7 +48,17 @@ const style = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: 1,
   },
+  lineUp: {
+    justifyContent: "space-between",
+    flexDirection: "row",
+    alignItems: "center"
+  },
   line: {
     flexDirection: "row",
+    justifyContent: "space-around",
   },
+  detailTime: {
+    flexDirection: "row",
+    width: 200
+  }
 });
