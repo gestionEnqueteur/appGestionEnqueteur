@@ -52,7 +52,6 @@ const style = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-
   infoLine: {
     flexDirection: "row",
     justifyContent: "space-around",
