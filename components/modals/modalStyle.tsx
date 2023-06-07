@@ -55,13 +55,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "column",
   },
-  infoLine: {
-
-flexDirection:"row",
-justifyContent:"space-around",
-  
-
-  },
 });
 
 export default styles;
