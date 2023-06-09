@@ -1,19 +1,14 @@
-import { View, StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, FlatList } from "react-native";
 import DetailCourse from "../components/DetailCourse";
-import { FlatList } from "react-native";
+
+import planning from "../mock/planning.json";
 
 export default function TrainPlanifieScreen() {
   return (
     <ScrollView style={style.container}>
-      <DetailCourse />
-      <DetailCourse />
-      <DetailCourse />
-      <DetailCourse />
-      <DetailCourse />
-      <DetailCourse />
-      <DetailCourse />
-      <DetailCourse />
-    
+      {planning.map((course) => (
+        <DetailCourse course={course} key={course._id.$oid} />
+      ))}
     </ScrollView>
   );
 }
@@ -22,7 +17,6 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    gap: 5, 
-    
+    gap: 5,
   },
 });

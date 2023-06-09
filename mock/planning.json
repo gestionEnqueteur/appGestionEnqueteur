@@ -174,11 +174,6 @@
 },
 {
   "_id": {
-    "$oid": "647f2813a438bdca44e7b512"
-  }
-},
-{
-  "_id": {
     "$oid": "647f2813a438bdca44e7b513"
   },
   "pds": "LLF",
@@ -320,11 +315,6 @@
   "depart": "VALENCIENNES",
   "ha": "13:51",
   "arrivee": "LILLE FLANDRES"
-},
-{
-  "_id": {
-    "$oid": "647f2813a438bdca44e7b51a"
-  }
 },
 {
   "_id": {
@@ -480,11 +470,6 @@
   "depart": "Béthune",
   "ha": "15:54",
   "arrivee": "Lille Flandres"
-},
-{
-  "_id": {
-    "$oid": "647f2813a438bdca44e7b523"
-  }
 },
 {
   "_id": {
@@ -657,11 +642,6 @@
   "depart": "DOUAI",
   "ha": "20:58",
   "arrivee": "LILLE FLANDRES"
-},
-{
-  "_id": {
-    "$oid": "647f2813a438bdca44e7b52c"
-  }
 },
 {
   "_id": {
@@ -844,11 +824,6 @@
 },
 {
   "_id": {
-    "$oid": "647f2813a438bdca44e7b536"
-  }
-},
-{
-  "_id": {
     "$oid": "647f2813a438bdca44e7b537"
   },
   "pds": "LLF",
@@ -1006,11 +981,6 @@
 },
 {
   "_id": {
-    "$oid": "647f2813a438bdca44e7b53f"
-  }
-},
-{
-  "_id": {
     "$oid": "647f2813a438bdca44e7b540"
   },
   "pds": "LLF",
@@ -1105,11 +1075,6 @@
   "depart": "Arras",
   "ha": "22:17",
   "arrivee": "Lille Flandres"
-},
-{
-  "_id": {
-    "$oid": "647f2813a438bdca44e7b545"
-  }
 },
 {
   "_id": {
@@ -1308,11 +1273,6 @@
   "depart": "AVESNES LE COMTE Mairie",
   "ha": "19:57",
   "arrivee": "KISIO Croix"
-},
-{
-  "_id": {
-    "$oid": "647f2813a438bdca44e7b550"
-  }
 },
 {
   "_id": {
