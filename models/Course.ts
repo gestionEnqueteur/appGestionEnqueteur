@@ -1,3 +1,4 @@
+import MesureBsc from "./bsc/MesureBsc";
 
 export default interface Course {
   mission: string;
@@ -9,4 +10,5 @@ export default interface Course {
   trainCourse?: string;
   ligne?: string;
   prQuota?: number;
+  mesureBsc?: MesureBsc;
 }
