@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { Text } from "react-native-paper";
 import ChronoTopDepart from "./ChornoTopDepart";
@@ -15,7 +16,24 @@ type Props = {
 
 const dateOfTest = new Date();
 
-export default function DetailCourse() {
+export default function DetailCourse(props: Props) {
+  const { course } = props;
+
+  const [dateTimeHd, setDateTimeHd] = useState(new Date()); 
+  const [dateTimeHa, setDateTimeHa] = useState(new Date()); 
+
+  // pour le test en attende de modification du Mock; 
+  const dateTimeDeparture = "2023-06-09T07:33:14.719Z" ; 
+  const datetimeArrival = "2023-06-09T07:59:56.333Z" ; 
+
+  useEffect(() => {
+
+    setDateTimeHd(new Date(dateTimeDeparture)); 
+    setDateTimeHa(new Date(datetimeArrival)); 
+    
+    
+  }, []);
+
   return (
     <View style={style.container}>
       <View></View>
@@ -27,10 +45,10 @@ export default function DetailCourse() {
             datetimeDepart={dateOfTest}
           />
           <DetailTrajet
-            departureTime={dateOfTest}
-            arrivalTime={dateOfTest}
-            departureCity="Lille"
-            arrivalCity="Paris"
+            departureTime={dateTimeHd}
+            arrivalTime={dateTimeHa}
+            departureCity={course.depart}
+            arrivalCity={course.arrivee}
           />
         </View>
         <View>
@@ -38,9 +56,9 @@ export default function DetailCourse() {
         </View>
       </View>
       <View style={style.infoLine}>
-        <CardNumeroLine lineNumber="K12" />
-        <Quotas value={80} />
-        <Text variant="headlineSmall">842526</Text>
+        {course.ligne && <CardNumeroLine lineNumber={course.ligne} />}
+        {course.prQuota && <Quotas value={course.prQuota} />}
+        <Text variant="headlineSmall">{course.trainCourse}</Text>
       </View>
     </View>
   );
