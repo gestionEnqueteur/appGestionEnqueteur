@@ -6,6 +6,13 @@ import MenuBurger from "./MenuBurger";
 import CardNumeroLine from "./CardNumeroLine";
 import Quotas from "./Quotas";
 
+
+import Course from "../models/Course";
+
+type Props = {
+  course: Course;
+};
+
 const dateOfTest = new Date();
 
 export default function DetailCourse() {
