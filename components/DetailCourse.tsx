@@ -22,16 +22,16 @@ export default function DetailCourse(props: Props) {
   const [dateTimeHd, setDateTimeHd] = useState(new Date()); 
   const [dateTimeHa, setDateTimeHa] = useState(new Date()); 
 
-  // pour le test en attende de modification du Mock; 
-  const dateTimeDeparture = "2023-06-09T07:33:14.719Z" ; 
-  const datetimeArrival = "2023-06-09T07:59:56.333Z" ; 
+  const [dateTimeHd, setDateTimeHd] = useState(new Date());
+  const [dateTimeHa, setDateTimeHa] = useState(new Date());
+
+  // pour le test en attende de modification du Mock;
+  const dateTimeDeparture = "2023-06-09T07:33:14.719Z";
+  const datetimeArrival = "2023-06-09T07:59:56.333Z";
 
   useEffect(() => {
-
-    setDateTimeHd(new Date(dateTimeDeparture)); 
-    setDateTimeHa(new Date(datetimeArrival)); 
-    
-    
+    setDateTimeHd(new Date(dateTimeDeparture));
+    setDateTimeHa(new Date(datetimeArrival));
   }, []);
 
   return (
