@@ -19,7 +19,7 @@ gitmoji
 
 procedure d'installation ssh
 
-## install 
+### install 
 
 ouvrir le terminale 
 wsl
@@ -31,13 +31,13 @@ dossier ?
 paraphrase?
 
 
-## capture la clef public
+### capture la clef public
 
 cat ~/.ssh/id_rsa.pub
 
 selectionner le texte =copier
 
-## sur github  
+### sur github  
 
 setting
 ssh and gpg keys
@@ -51,7 +51,7 @@ coller le texte de la clef
 add ssh key 
 
 
-## signature
+### signature
 
 ouvrir le terminal
 wsl
@@ -62,31 +62,28 @@ remplir les informations
  type/durer/email/avec ou sans paraphrase..
 
 
-## lister les clefs
+### lister les clefs
 
  gpg --list-secret-keys --keyid-format=long
 
-## reponse
+### reponse
 
-gpg: checking the trustdb
-gpg: marginals needed: 3  completes needed: 1  trust model: pgp
-gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
-/home/webman/.gnupg/pubring.kbx
 -------------------------------
 sec   rsa3072/7623C6DABAAC42 2023-06-11 [SC]
       A4BBFD9130F0CBD8D2AA87623C6DABAC6AC42
-uid                 [ultimate] sign-wsl-jean-seb-code (clef de signature de commit sur wsl en gpg key sur la cession jean-seb-code) <webmanhtc@gmail.com>
+uid                 [ultimate] sign-keys
+user <mail>
 ssb   rsa3072/3FDB1278CF07D 2023-06-11 [E]
 
 la key ID est : 3FDB1278CF07D
 
 
-## edition
+### edition
 
 gpg --edit-key 3FDB1278CF07D
 
 
-## gpg
+### gpg
 
 adduid
 
@@ -102,21 +99,21 @@ Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
 
 save
 
-## sortie du menu gpg
+### sortie du menu gpg
 
 
-## edition de la clef public
+### edition de la clef public
 
  gpg --armor --export 3FDB1278CF07D
 Prints the GPG key, in ASCII armor format
 
 selectionner et copier 
 
-## compte gihub
+### compte gihub
  setting
  ssh and gpg keys
 
- ## gpg keys
+ ### gpg keys
 
  new gpg key
   
@@ -128,10 +125,29 @@ selectionner et copier
   add gpg keys
 
 
-  ## reglage git config
+  ### reglage git config
 
 git config --global user.signingkey 3FDB1278CF07D
 
+## avoir les banch sur le terminale wsl 
 
 
-m
+editer depuis le contenaire lunux 
+
+
+nano ~/.bashrc
+
+If you have no nano use:
+
+apt install nano
+
+Add to the end of the file:
+
+parse_git_branch() {
+   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[33m\]$(parse_git_branch)\[\033[00m\]\$ '
+
+### save et quite
+
+### terminer :-)
