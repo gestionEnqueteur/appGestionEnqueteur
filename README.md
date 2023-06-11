@@ -15,3 +15,4 @@ Application mobile pour la gestion du planning des vacations des enqueteurs Kisi
 2. installer les dépendances du projet en tapant : `npm ci`
 3. lancer le serveur de developpement en tapant la commande : `npm start`
 4. scanner le QR-core du terminal avec l'application Expo Go ( le téléphone doit etre dans le même réseau )
+gitmoji
