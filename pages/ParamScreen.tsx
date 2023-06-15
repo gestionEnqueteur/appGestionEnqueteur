@@ -43,7 +43,7 @@ export default function ParamScreen() {
   useEffect(() => {
     // chargement de la configuration dans le context ConfigurationProvider
     getConfiguration().then((storedConfig: ConfigurationType) => {
-      setConfiguration(storedConfig);
+      if (storedConfig !== null) setConfiguration(storedConfig);
     });
   }, []);
 
