@@ -1,12 +1,13 @@
 import { View, ScrollView, StyleSheet } from "react-native";
-import { Text, TextInput, Button, Surface } from "react-native-paper";
-import { useEffect, useContext } from "react";
+import { Text, TextInput, Button, Surface, Snackbar } from "react-native-paper";
+import { useEffect, useContext, useState } from "react";
 import ConfigurationType from "../models/ConfigurationType";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ConfigurationContext } from "../provider/ConfigurationProvider";
 
 export default function ParamScreen() {
   const { configuration, setConfiguration } = useContext(ConfigurationContext);
+  const [visibleSnackBar, setVisibleSnackBar] = useState(false);
 
   const handleOnChangeURL = (newValue: string) => {
     console.log(newValue);
@@ -24,6 +25,7 @@ export default function ParamScreen() {
     try {
       const jsonValue = JSON.stringify(configuration);
       await AsyncStorage.setItem("configuration", jsonValue);
+      setVisibleSnackBar(true);
     } catch (e) {
       console.log(e);
     }
@@ -87,6 +89,21 @@ export default function ParamScreen() {
       </Surface>
       <Button mode="contained">Syncronisation enquête</Button>
       <Button mode="contained">Recherche mise à jour application</Button>
+      <Snackbar
+        visible={visibleSnackBar}
+        onDismiss={() => setVisibleSnackBar(false)}
+        icon="content-save"
+        onIconPress={() => setVisibleSnackBar(false)}
+        duration={2000}
+        action={{
+          label: "fermer",
+          onPress: () => {
+            setVisibleSnackBar(false);
+          },
+        }}
+      >
+        Configuration sauvegardé
+      </Snackbar>
     </ScrollView>
   );
 }
