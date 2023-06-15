@@ -1,7 +1,50 @@
 import { View, ScrollView, StyleSheet } from "react-native";
 import { Text, TextInput, Button, Surface } from "react-native-paper";
+import { useEffect, useContext } from "react";
+import ConfigurationType from "../models/ConfigurationType";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ConfigurationContext } from "../provider/ConfigurationProvider";
 
 export default function ParamScreen() {
+  const { configuration, setConfiguration } = useContext(ConfigurationContext);
+
+  const handleOnChangeURL = (newValue: string) => {
+    console.log(newValue);
+    setConfiguration({ ...configuration, urlApi: newValue });
+    console.log(configuration);
+  };
+
+  const handleOnChangeInvertigator = (newValue: string) => {
+    console.log(newValue);
+    setConfiguration({ ...configuration, invertigator: newValue });
+    console.log(configuration);
+  };
+
+  const saveConfiguration = async () => {
+    try {
+      const jsonValue = JSON.stringify(configuration);
+      await AsyncStorage.setItem("configuration", jsonValue);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getConfiguration = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem("configuration");
+      return jsonValue != null ? JSON.parse(jsonValue) : null;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    // chargement de la configuration dans le context ConfigurationProvider
+    getConfiguration().then((storedConfig: ConfigurationType) => {
+      setConfiguration(storedConfig);
+    });
+  }, []);
+
   return (
     <ScrollView contentContainerStyle={style.container}>
       <Surface style={style.areaParam}>
@@ -11,6 +54,8 @@ export default function ParamScreen() {
             mode="outlined"
             label="Endpoint API"
             placeholder="URL API"
+            onChangeText={handleOnChangeURL}
+            value={configuration.urlApi}
           />
         </View>
         <View>
@@ -20,14 +65,23 @@ export default function ParamScreen() {
             label="enqueteur"
             placeholder="trigramme enqueteur
            ou nom enqueteur"
+            onChangeText={handleOnChangeInvertigator}
+            value={configuration.invertigator}
           />
         </View>
         <View style={style.buttonArea}>
           <View>
-            <Button mode="contained-tonal">Tester API</Button>
+            <Button
+              mode="contained-tonal"
+              onPress={() => console.log("click sur le bouton Tester API")}
+            >
+              Tester API
+            </Button>
           </View>
           <View>
-            <Button mode="contained-tonal">Enregistrer</Button>
+            <Button mode="contained-tonal" onPress={saveConfiguration}>
+              Enregistrer
+            </Button>
           </View>
         </View>
       </Surface>
@@ -46,11 +100,10 @@ const style = StyleSheet.create({
   },
   areaParam: {
     gap: 5,
-    padding: 4,  
+    padding: 4,
   },
   buttonArea: {
     flexDirection: "row",
     justifyContent: "space-around",
-  }
-
+  },
 });
