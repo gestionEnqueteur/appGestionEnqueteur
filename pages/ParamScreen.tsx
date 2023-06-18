@@ -11,39 +11,31 @@ export default function ParamScreen() {
   const [iconSnackBar, setIconSnackBar] = useState("");
 
   const handleOnChangeURL = (newValue: string) => {
-    console.log(newValue);
     setConfiguration({ ...configuration, urlApi: newValue });
-    console.log(configuration);
   };
 
   const handleOnChangeInvertigator = (newValue: string) => {
-    console.log(newValue);
     setConfiguration({ ...configuration, invertigator: newValue });
-    console.log(configuration);
   };
 
   const displaySnackBar = (label: string, icon: string) => {
-    // mettre a jour le state 
+    // mettre a jour le state
     setLabelSnackBar(label);
     setIconSnackBar(icon);
 
-    // affichage de la snackBar 
-    setVisibleSnackBar(true); 
-  }
+    // affichage de la snackBar
+    setVisibleSnackBar(true);
+  };
 
   const saveConfiguration = async () => {
     try {
       const jsonValue = JSON.stringify(configuration);
       await AsyncStorage.setItem("configuration", jsonValue);
-      displaySnackBar("Paramètre sauvegardé", "content-save"); 
+      displaySnackBar("Paramètre sauvegardé", "content-save");
     } catch (e) {
       displaySnackBar("Echec d'enregistrement", "alert-circle");
     }
   };
-
-  
-
-  
 
   return (
     <ScrollView contentContainerStyle={style.container}>
