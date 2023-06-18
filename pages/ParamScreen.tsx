@@ -8,6 +8,8 @@ import { ConfigurationContext } from "../provider/ConfigurationProvider";
 export default function ParamScreen() {
   const { configuration, setConfiguration } = useContext(ConfigurationContext);
   const [visibleSnackBar, setVisibleSnackBar] = useState(false);
+  const [labelSnackBar, setLabelSnackBar] = useState("");
+  const [iconSnackBar, setIconSnackBar] = useState("");
 
   const handleOnChangeURL = (newValue: string) => {
     console.log(newValue);
@@ -21,13 +23,22 @@ export default function ParamScreen() {
     console.log(configuration);
   };
 
+  const displaySnackBar = (label: string, icon: string) => {
+    // mettre a jour le state 
+    setLabelSnackBar(label);
+    setIconSnackBar(icon);
+
+    // affichage de la snackBar 
+    setVisibleSnackBar(true); 
+  }
+
   const saveConfiguration = async () => {
     try {
       const jsonValue = JSON.stringify(configuration);
       await AsyncStorage.setItem("configuration", jsonValue);
-      setVisibleSnackBar(true);
+      displaySnackBar("Paramètre sauvegardé", "content-save"); 
     } catch (e) {
-      console.log(e);
+      displaySnackBar("Echec d'enregistrement", "alert-circle");
     }
   };
 
@@ -80,7 +91,7 @@ export default function ParamScreen() {
       <Snackbar
         visible={visibleSnackBar}
         onDismiss={() => setVisibleSnackBar(false)}
-        icon="content-save"
+        icon={iconSnackBar}
         onIconPress={() => setVisibleSnackBar(false)}
         duration={2000}
         action={{
@@ -90,7 +101,7 @@ export default function ParamScreen() {
           },
         }}
       >
-        Configuration sauvegardé
+        {labelSnackBar}
       </Snackbar>
     </ScrollView>
   );
