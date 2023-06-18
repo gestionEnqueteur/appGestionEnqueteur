@@ -1,7 +1,6 @@
 import { View, ScrollView, StyleSheet } from "react-native";
 import { Text, TextInput, Button, Surface, Snackbar } from "react-native-paper";
 import { useEffect, useContext, useState } from "react";
-import ConfigurationType from "../models/ConfigurationType";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ConfigurationContext } from "../provider/ConfigurationProvider";
 
