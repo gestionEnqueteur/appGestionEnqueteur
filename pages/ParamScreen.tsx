@@ -31,21 +31,9 @@ export default function ParamScreen() {
     }
   };
 
-  const getConfiguration = async () => {
-    try {
-      const jsonValue = await AsyncStorage.getItem("configuration");
-      return jsonValue != null ? JSON.parse(jsonValue) : null;
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  
 
-  useEffect(() => {
-    // chargement de la configuration dans le context ConfigurationProvider
-    getConfiguration().then((storedConfig: ConfigurationType) => {
-      if (storedConfig !== null) setConfiguration(storedConfig);
-    });
-  }, []);
+  
 
   return (
     <ScrollView contentContainerStyle={style.container}>
